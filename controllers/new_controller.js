@@ -8,11 +8,11 @@ var db = require("../models/");
 // GET ROUTES
 router.get("/", function(req, res) {
     db.Fist5.findAll({
-        atrributes: 'topic',
+        attributes: ['topic'],
         order: 'ID DESC',
         limit: 5
     }).then(function(dbFist5) {
-        console.log(dbFist5);
+        console.log(dbFist5[0].dataValues);
         res.render("index")
 
 
