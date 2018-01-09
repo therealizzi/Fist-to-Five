@@ -7,8 +7,17 @@ var db = require("../models/");
 
 // GET ROUTES
 router.get("/", function(req, res) {
-    res.render("index")
-});
+    db.Fist5.findAll({
+        atrributes: 'topic',
+        order: 'ID DESC',
+        limit: 5
+    }).then(function(dbFist5) {
+        console.log(dbFist5);
+        res.render("index")
+
+
+    });
+})
 
 router.get("/add", function(req, res) {
     res.render("add")
@@ -50,6 +59,10 @@ router.post("/add", function(req, res) {
         .then(function(dbFist5) {
             // log the result to our terminal/bash window
             // redirect
+            console.log(dbFist5);
+            var data = JSON.stringify(dbFist5);
+            console.log("data: = " + data);
+            console.log(data.topic);
             res.redirect("/");
         });
 
