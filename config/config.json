@@ -1,22 +1,22 @@
 {
     "development": {
         "username": "root",
-        "password": "NUcodingBS!",
-        "database": "bobsfive",
+        "password": "123qwe$R",
+        "database": "izzifive_db",
         "host": "localhost",
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
-        "password": "NUcodingBS!",
-        "database": "bobsfive",
+        "password": "123qwe$R",
+        "database": "izzifive_db",
         "host": "localhost",
         "dialect": "mysql"
     },
     "production": {
         "username": "root",
-        "password": "NUcodingBS!",
-        "database": "bobsfive",
+        "password": "123qwe$R",
+        "database": "izzifive_db",
         "host": "localhost",
         "dialect": "mysql"
     }
