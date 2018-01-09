@@ -1,7 +1,7 @@
 <section class="container dashboard wrapper">
-	<div class="row">
-		<div class="col">
-			
+    <div class="row">
+        <div class="col">
+            
             <section class="container wrapper">
                 <div class="row">
                     <div class="col-md-6 offset-3">
@@ -12,24 +12,29 @@
                         <button type='submit' class=" offset-10 btn btn-primary btn-signin">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>Add New
                         </button><br>
-                        </form>
-
-                        <form action='/' method='post'>
-                            <div class="form-group">
-                                <label for="priority"><span class="required">*</span></label>
-                                <input type="submit" id="f1" name="count" value="f1">
-                                <label>Fist 1</label>
-                                <input type="submit" id="f2" name="count" value="f2">
-                                <label>Fist 2</label>
-                                <input type="submit" id="f3" name="count" value="f3">
-                                <label>Fist 3</label>
-                                <input type="submit" id="f4" name="count" value="f4">
-                                <label>Fist 4</label>
-                                <input type="submit" id="f5" name="count" value="f5">
-                                <label>Fist 5</label>
-                            </div>
-                        </form>
-
+                        <ul>
+                            {{#each topic}}
+                            <li>
+                                {{this.topic}}
+                            </form>
+                            <form action='/' method='post'>
+                                <div class="form-group">
+                                    <label for="priority"><span class="required">*</span></label>
+                                    <input type="submit" id="f1" name="count" value="f1">
+                                    <label>Fist 1</label>
+                                    <input type="submit" id="f2" name="count" value="f2">
+                                    <label>Fist 2</label>
+                                    <input type="submit" id="f3" name="count" value="f3">
+                                    <label>Fist 3</label>
+                                    <input type="submit" id="f4" name="count" value="f4">
+                                    <label>Fist 4</label>
+                                    <input type="submit" id="f5" name="count" value="f5">
+                                    <label>Fist 5</label>
+                                </div>
+                            </form>
+                            </li>
+                            {{/each}}
+                        </ul>
                     </div>
                     <div class="col-md-1">
                     </div>
@@ -40,6 +45,6 @@
                 </button><br>
                 </form>               
             </section>
-		</div>
-	</div>
+        </div>
+    </div>
 </section>

@@ -34,9 +34,25 @@ router.post("/", function(req, res) {
 
 router.post("/add", function(req, res) {
     var task = req.body.task;
+    console.log(task);
+    db.Fist5.create({
+            topic: task,
+            count: 0,
+            f1: 0,
+            f2: 0,
+            f3: 0,
+            f4: 0,
+            f5: 0,
+            ftotal: 0,
+            favg: 0,
+        })
+        // pass the result of our call
+        .then(function(dbFist5) {
+            // log the result to our terminal/bash window
+            // redirect
+            res.redirect("/");
+        });
 
-    //needs to post updates to Topic
-    res.redirect("/")
 })
 
 module.exports = router;
