@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+  <div class="row">
+
+{{!--     <img class="img-fluid center-block" src="../../assets/burger2.png" alt="cartoon burger" style="width:150px;height:150px;"> --}}
+
+  </div>
+</div>
+
+{{!-- THIS IS THE HEADER OF THE PAGE --}}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2 col-md-3">
+    </div>  
+    <h1 class="col-xs-8 col-md-6 text-center header">Here are all the previous topics:</h1>
+    </div>  
+  </div>
+</div>
+
+{{!-- THIS IS THE TOPIC SECTION --}}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+      <ul>
+        {{#each topic}}
+          {{#unless this.expired}}
+            <li>
+              <div class="col-xs-8 col-md-8">
+                <div id="topic_box" class="text-center panel panel-default">
+                {{this.id}}  {{this.topic}}
+                </div>
+              </div>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <form action ="/" method='get' >
+     <button type='submit' class="btn btn-primary btn-signin offset-8">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>Home
+    </button><br>
+    </form>  
