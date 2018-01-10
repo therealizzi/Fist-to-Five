@@ -27,7 +27,16 @@ router.get("/add", function(req, res) {
 });
 
 router.get("/history", function(req, res) {
-    res.render("history")
+    db.Fist5.findAll({
+            order: 'ID DESC'
+        })
+        .then(function(dbFist5) {
+            var hbsObject = { fist5: dbFist5 };
+            return res.render("index", hbsObject);
+
+
+        });
+
 });
 
 // POST ROUTES
