@@ -1,14 +1,21 @@
+{{!-- navbar --}}
+<nav class="navbar navbar-dark bg-dark">
+    {{!-- <a class="navbar-brand" href="#"></a> --}}
+    <form action='/' method='get'>
+        <button type='submit' class="btn btn-outline-secondary my-2 my-sm-0 btn-signin">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Home
+        </button>
+    </form>
+</nav>
+
+<br><br>
+
 <section class="container dashboard wrapper">
 	<div class="row">
 		<div class="col">
 			
             <section class="container wrapper">
-                <div class="row">
-                        <form action='/' method='get'>
-                        <button type='submit' class="btn btn-primary btn-signin">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Home
-                        </button>
-                        </form><br>
+                <div class="row"><br>
                     <div class="col-md-6 offset-3">
                         <h2>Welcome to Fist-of-Five!</h2>
                         <form action='/add' method='post'>
@@ -18,7 +25,7 @@
                                 <input type="value" class="form-control" id="task" name="task" placeholder="task">
                             </div> 
                             
-                            <button type='submit' class="btn btn-primary btn-signin">
+                            <button type='submit' class="btn btn-signin" style="background-color: #CD00FF">
                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;&nbsp;Add
                             </button><br>
                         </form>
