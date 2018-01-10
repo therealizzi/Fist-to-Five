@@ -9,14 +9,14 @@
                         <h3>To start, rate the following Topics!</h3>
                         <hr>
                         <form action="add" method='get'>
-                        <button type='submit' class=" offset-10 btn btn-primary btn-signin">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>Add New
-                        </button><br>
+                            <button type='submit' class=" offset-10 btn btn-primary btn-signin">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>Add New
+                            </button><br>
+                        </form>
                         <ul>
                             {{#each fist5}}
                             <li>
                                {{this.id}}. {{this.topic}}
-                            </form>
                             <form action='/' method='post'>
                                 <div class="form-group">
                                     <label for="priority"><span class="required">*</span></label>
