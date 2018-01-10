@@ -14,7 +14,10 @@ router.get("/", function(req, res) {
         limit: 5
     }).then(function(dbFist5) {
         console.log(JSON.stringify(dbFist5[0].dataValues));
-        res.render("index", {"items": dbFist5})
+        var hbsObject = { fist5: dbFist5 };
+        console.log("what " + hbsObject);
+        return res.render("index", hbsObject);
+        // res.render(dbFist5)
 
     });
 })
