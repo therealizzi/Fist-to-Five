@@ -80,28 +80,6 @@ router.post("/add", function(req, res) {
 
 })
 
-// PUT ROUTE TO CHANGE FIST VALUES
-router.put("/add/update/:values", function(request, response) {
-
-    db.Fist5.update({
-        f1: request.params.values,
-        f2: request.params.values,
-        f3: request.params.values,
-        f4: request.params.values,
-        f5: request.params.values
-    },
-        {
-            where: {
-                id: request.body.id
-            }
-        }
-    ).then(function(dbFist5) {
-
-    });
-});
-
-
-
 
 
 
