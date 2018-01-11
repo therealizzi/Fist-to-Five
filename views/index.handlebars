@@ -9,11 +9,11 @@
 </nav>
 
 {{!-- jumbotron --}}
-<div class="jumbotron jumbotron-fluid" style="background-color: #CD00FF; font-family: 'Source Serif Pro', serif;">
+<div class="jumbotron jumbotron-fluid" style="background-color: #401f68; font-family: 'Source Serif Pro', serif;">
   <div class="container">
-    <h1 class="display-4">Welcome to Fist-Of-Five!</h1>
-    <hr>
-    <p class="lead">To start, you can rate a topic or click "Add Question" to add a new topic!</p>
+    <h1 class="display-4" style="color: white">Welcome to Fist-Of-Five!</h1>
+    <hr style="background-color: white;">
+    <p class="lead" style="color: white;">To start, you can rate a topic or click "Add Question" to add a new topic!</p>
   </div>
 </div>
 
@@ -23,25 +23,24 @@
             <div class="col-12">
                 {{#each fist5}}
                     <div class="card text-center">
-                        <div class="card-header" style="background-color: #E57AFF;">
-                        {{this.id}}. {{this.topic}}
+                        <div class="card-header" style="background-color: #c37aff;">
+                        {{this.topic}}
                         </div>
                         
                         <br>
-
                         <div class="card-body">
                             <form action='/' method='post'>
                                 <div class="form-group">
                                     <label for="priority"><span class="required">*</span></label>
-                                    <input type="submit" id="f1" name="count" value="1">
+                                    <input type="submit" id="f1" name="count" value="{{this.id}}.1">
                                     <label>Fist 1</label>
-                                    <input type="submit" id="f2" name="count" value="2">
+                                    <input type="submit" id="f2" name="count" value="{{this.id}}.2">
                                     <label>Fist 2</label>
-                                    <input type="submit" id="f3" name="count" value="3">
+                                    <input type="submit" id="f3" name="count" value="{{this.id}}.3">
                                     <label>Fist 3</label>
-                                    <input type="submit" id="f4" name="count" value="4">
+                                    <input type="submit" id="f4" name="count" value="{{this.id}}.4">
                                     <label>Fist 4</label>
-                                    <input type="submit" id="f5" name="count" value="5">
+                                    <input type="submit" id="f5" name="count" value="{{this.id}}.5">
                                     <label>Fist 5</label>
                                 </div>
                             </form>
@@ -55,7 +54,24 @@
 </section>
 
 <form action ="history" method='get' >
- <button type='submit' class="btn btn-primary btn-signin offset-8">
+ <button type='submit' class="btn btn-outline-secondary btn-signin offset-8">
     <i class="fa fa-paper-plane" aria-hidden="true"></i>See History
 </button><br>
 </form>  
+
+
+<!-- Start Banner Area -->
+        <section class="banner-area relative">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-lg-8">
+                        <div class="banner-content text-center">
+                            <p class="text-uppercase text-white">We work hard, we result perfect</p>
+                            <h1 class="text-uppercase text-white">Crafting Digital Agency Experiences</h1>
+                            <a href="#" class="primary-btn banner-btn">Explore Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
