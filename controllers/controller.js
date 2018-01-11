@@ -1,52 +1,70 @@
-// Our Fist-to-Five controller
+// Fist-to-Five Controller
 // =====================
 
+// These are the dependencies
 var express = require("express");
 var router = express.Router();
 var db = require("../models/");
 
-// GET ROUTES
+// The Routes
+// =====================
+
+// This is the main index get route
 router.get("/", function(req, res) {
+    
+    // Calls the database models and grabs the top 5 topics
     db.Fist5.findAll({
         attribute: ['topic'],
         order: 'ID DESC',
         limit: 5
+
+    // Renders the index handlebars along with the topics
     }).then(function(dbFist5) {
-        // console.log(JSON.stringify(dbFist5[0].dataValues));
         var hbsObject = { fist5: dbFist5 };
-        // console.log("what " + hbsObject);
         return res.render("index", hbsObject);
-        // res.render(dbFist5)
     });
 })
 
+// This is the 'add' get route
 router.get("/add", function(req, res) {
+
+    // Renders the add html
     res.render("add")
 });
 
+// This is the 'history' get route
 router.get("/history", function(req, res) {
+
+    // Goes to the database and gets all topics
     db.Fist5.findAll({
             order: 'ID DESC'
         })
+
+        // Renders the history html and topics
         .then(function(dbFist5) {
             var hbsObject = { fist5: dbFist5 };
             return res.render("history", hbsObject);
         });
 });
 
-// POST ROUTES
+// This is the main index post route
 router.post("/", function(req, res) {
+
+    // Gets the request body and grabs the button information
     var fistSplit = req.body.count;
     fistSplit = (fistSplit).split(".");
     fistSelected = fistSplit[1];
-    console.log(fistSplit);
     var topicID = parseInt(fistSplit[0]);
+
+    // Sets up empty variables for each button
     var fist0 = 0;
     var fist1 = 0;
     var fist2 = 0;
     var fist3 = 0;
     var fist4 = 0;
     var fist5 = 0;
+
+    // Identifies which button was pressed and loads that variable with a '1'
     switch (fistSelected) {
         case "f0":
             var fistNum = 0;
@@ -75,18 +93,19 @@ router.post("/", function(req, res) {
         default:
             var fistNum = 0;
     }
-    // console.log("request body" + req.body.count);
+
+    // Finds the topic that was used in the request
     db.Fist5.findById(topicID).then(dbFist5 => {
-        console.log("Help ME!");
         var total = (JSON.stringify(dbFist5.ftotal) + fistNum);
         var count = (JSON.stringify(dbFist5.count) + 1);
         var average = total / count;
-        console.log("Total = " + total);
-        console.log("count = " + count);
-        console.log("average = " + average);
+
+        // Updates the favg column 
         (dbFist5).update({
             'favg': average
         })
+
+        // Increments the appropriate button column
         return (dbFist5).increment({
             'count': 1,
             'f0': fist0,
@@ -98,14 +117,19 @@ router.post("/", function(req, res) {
             'ftotal': fistNum
         })
     });
-    // console.log(count);
-    //needs to post updates to F1, F2, F3, F4, F5
+
+    // Returns the client to the index page
     res.redirect("/")
 })
 
+
+// This is the post route for the add page
 router.post("/add", function(req, res) {
+
+    // Stores the new task from the request in a 'task' variable
     var task = req.body.task;
-    console.log(task);
+
+    // Creates a new topic in the database with all counts = 0
     db.Fist5.create({
             topic: task,
             count: 0,
@@ -118,14 +142,10 @@ router.post("/add", function(req, res) {
             ftotal: 0,
             favg: 0,
         })
-        // pass the result of our call
+
+        // Then passes the result and redirects client to index
         .then(function(dbFist5) {
-            // log the result to our terminal/bash window
-            // redirect
-            console.log(dbFist5);
             var data = JSON.stringify(dbFist5);
-            console.log("data: = " + data);
-            console.log(data.topic);
             res.redirect("/");
         });
 })

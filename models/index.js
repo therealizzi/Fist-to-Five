@@ -1,5 +1,6 @@
 'use strict';
 
+// Set up the model index requirement variables
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
@@ -8,12 +9,14 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
+// Check for JAWSDB - else use local database configuration
 if (process.env.JAWSDB_URL) {
   var sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// Read through the files to find the appropriate model
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
@@ -24,12 +27,14 @@ fs
     db[model.name] = model;
   });
 
+// Associate the models to the db module.export variable
 Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
 
+// Initiate sequelize
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

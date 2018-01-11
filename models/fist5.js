@@ -1,5 +1,13 @@
+// Fist-to-Five Sequelize Schema
+// =====================
+
+// This is the sequelize function
 module.exports = function(sequelize, DataTypes) {
+    
+    // This defines the object variable for the database
     var Fist5 = sequelize.define("Fist5", {
+
+        // These define the column fields in mySQL
         topic: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -35,5 +43,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DECIMAL(10, 2)
         },
     });
+
+    // This allows us to call the data from the controller
     return Fist5;
 };

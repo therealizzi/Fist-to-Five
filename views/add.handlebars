@@ -1,28 +1,24 @@
 {{!-- navbar --}}
 <nav class="navbar navbar-dark bg-dark">
-    {{!-- <a class="navbar-brand" href="#"></a> --}}
     <form action='/' method='get'>
         <button type='submit' class="btn btn-outline-light">Home</button>
     </form>
 </nav>
-
 <br><br>
 
+{{!-- Body containing the add data card --}}
 <section class="container dashboard wrapper">
 	<div class="row">
 		<div class="col">
-			
             <section class="container wrapper">
                 <div class="row"><br>
                     <div class="col-md-6 offset-3">
                         <h2>Welcome to Fist-of-Five!</h2>
                         <form action='/add' method='post'>
-
                             <div class="form-group">
                                 <label for="task">Add a new topic to test the audience:&nbsp;<span class="required"></span></label>
                                 <input type="value" class="form-control" id="task" name="task" placeholder="Topic Description">
                             </div> 
-                            
                             <button type='submit' class="btn btn-outline-light" style="background-color: #401f68; color: white">
                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>Add Topic
                             </button><br>

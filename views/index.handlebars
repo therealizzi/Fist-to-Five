@@ -1,7 +1,7 @@
 {{!-- navbar --}}
 <nav class="navbar navbar-dark bg-dark">
-    <form action='/' method='get'>
-        <button type='submit' class="btn btn-outline-light my-2 my-sm-0 btn-signin">Home</button>
+    <form action='history' method='get'>
+        <button type='submit' class="btn btn-outline-light my-2 my-sm-0 btn-signin">History</button>
     </form>
     <a class="navbar-brand" href="#"></a>
     <form action="add" method='get'>
@@ -15,10 +15,11 @@
   <div class="container">
     <h1 class="display-4" style="color: white">Welcome to Fist-Of-Five!</h1>
     <hr style="background-color: white;">
-    <p class="lead" style="color: white;">To start, you can rate a topic or click "Add Topic" to start a new topic!</p>
+    <p class="lead" style="color: white;">Click a <em>hand</em> to rate a topic or click <em>"Add Topic"</em> to start a new topic</p>
   </div>
 </div>
 
+{{!-- body containing the main cards --}}
 <section class="container dashboard wrapper">
     <div class="row">
         <div class="col">
@@ -31,7 +32,6 @@
                         <div># Votes: {{this.count}} <br> Avg: {{this.favg}}
                         </div>
                         <br>
-
                         <div class="card-body" style="box-shadow: 10px 10px 5px grey">
                             <form action='/' method='post'>
                                 <div class="form-group">
@@ -55,8 +55,7 @@
                                     </button>
                                 </div>
                             </form>
-
-                            {{this.createdAt}}
+                            <strong>Topic Started: </strong>{{this.createdAt}}
                         </div>
                     </div>
                     <br><br>
@@ -66,24 +65,16 @@
     </div>
 </section>
 
-<form action ="history" method='get' >
- <button type='submit' class="btn btn-outline-secondary btn-signin offset-8">
-    <i class="fa fa-paper-plane" aria-hidden="true"></i>See History
-</button><br>
-</form>  
-
-<!-- Start Banner Area -->
-        <section class="banner-area relative" style="background-color: #401f68; padding: 30px">
-            <div class="overlay overlay-bg"></div>
-            <div class="container">
-                <div class="row fullscreen justify-content-center align-items-center">
-                    <div class="col-lg-8">
-                        <div class="banner-content text-center">
-                            {{!-- <p class="text-uppercase text-white">We work hard, we result perfect</p> --}}
-                            <h1 class="text-uppercase text-white" style="font-family: 'Source Serif Pro', serif;">By: Northwestern & Trilogy</h1>
-                            {{!-- <a href="#" class="primary-btn banner-btn">Explore Us</a> --}}
-                        </div>
-                    </div>
+<!-- Footer Banner Area -->
+<section class="banner-area relative" style="background-color: #401f68; padding: 30px">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen justify-content-center align-items-center">
+            <div class="col-lg-8">
+                <div class="banner-content text-center">
+                    <h1 class="text-uppercase text-white" style="font-family: 'Source Serif Pro', serif;">By: Trilogy at NU</h1>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
