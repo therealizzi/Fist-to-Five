@@ -15,24 +15,27 @@
                         </form>
                         <ul>
                             {{#each fist5}}
-                            <li>
-                               {{this.id}}. {{this.topic}}
+
+                            <ul>
+                               {{this.topic}}
+                            </form>
+
                             <form action='/' method='post'>
                                 <div class="form-group">
                                     <label for="priority"><span class="required">*</span></label>
-                                    <input type="submit" id="f1" name="count" value="f1">
+                                    <input type="submit"  id="f1" name="count" value="{{this.id}}.f1">
                                     <label>Fist 1</label>
-                                    <input type="submit" id="f2" name="count" value="f2">
+                                    <input type="submit" id="f2" name="count" value="{{this.id}}.f2">
                                     <label>Fist 2</label>
-                                    <input type="submit" id="f3" name="count" value="f3">
+                                    <input type="submit" id="f3" name="count" value="{{this.id}}.f3">
                                     <label>Fist 3</label>
-                                    <input type="submit" id="f4" name="count" value="f4">
+                                    <input type="submit" id="f4" name="count" value="{{this.id}}.f4">
                                     <label>Fist 4</label>
-                                    <input type="submit" id="f5" name="count" value="f5">
+                                    <input type="submit" id="f5" name="count" value="{{this.id}}.f5">
                                     <label>Fist 5</label>
                                 </div>
                             </form>
-                            </li>
+                            </ul>
                             {{/each}}
                         </ul>
                     </div>
