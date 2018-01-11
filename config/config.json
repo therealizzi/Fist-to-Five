@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "NUcodingBS!",
-        "database": "bobsfive",
+        "password": "",
+        "database": "FistToFive",
         "host": "localhost",
         "dialect": "mysql"
     },

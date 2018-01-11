@@ -1,29 +1,39 @@
+{{!-- navbar --}}
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"></a>
+    <form action="add" method='get'>
+        <button type='submit' class="btn btn-outline-secondary my-2 my-sm-0 btn-signin">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>ADD QUESTION
+        </button>
+    </form>
+</nav>
+
+{{!-- jumbotron --}}
+<div class="jumbotron jumbotron-fluid" style="background-color: #401f68; font-family: 'Source Serif Pro', serif;">
+  <div class="container">
+    <h1 class="display-4" style="color: white">Welcome to Fist-Of-Five!</h1>
+    <hr style="background-color: white;">
+    <p class="lead" style="color: white;">To start, you can rate a topic or click "Add Question" to add a new topic!</p>
+  </div>
+</div>
+
 <section class="container dashboard wrapper">
     <div class="row">
         <div class="col">
-            
-            <section class="container wrapper">
-                <div class="row">
-                    <div class="col-md-6 offset-3">
-                        <h2>Welcome to Fist-of-Five!</h2>
-                        <h3>To start, rate the following Topics!</h3>
-                        <hr>
-                        <form action="add" method='get'>
-                            <button type='submit' class=" offset-10 btn btn-primary btn-signin">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>Add New
-                            </button><br>
-                        </form>
-                        <ul>
-                            {{#each fist5}}
+            <div class="col-12">
+                {{#each fist5}}
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: #c37aff;">
+                        {{this.topic}}
+                        </div>
+                        
+                        <br>
 
-                            <ul>
-                               {{this.topic}}
-                            </form>
-
+                        <div class="card-body">
                             <form action='/' method='post'>
                                 <div class="form-group">
                                     <label for="priority"><span class="required">*</span></label>
-                                    <input type="submit"  id="f1" name="count" value="{{this.id}}.f1">
+                                    <input type="submit" id="f1" name="count" value="{{this.id}}.f1">
                                     <label>Fist 1</label>
                                     <input type="submit" id="f2" name="count" value="{{this.id}}.f2">
                                     <label>Fist 2</label>
@@ -35,19 +45,38 @@
                                     <label>Fist 5</label>
                                 </div>
                             </form>
-                            </ul>
-                            {{/each}}
-                        </ul>
+
+                            {{this.favg}}
+
+                            {{this.createdAt}}
+                        </div>
                     </div>
-                    <div class="col-md-1">
-                    </div>
-                </div>
-                <form action ="history" method='get' >
-                 <button type='submit' class="btn btn-primary btn-signin offset-8">
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>See History
-                </button><br>
-                </form>               
-            </section>
-        </div>
+                    <br><br>
+                {{/each}}
+            </div>
+        </div>             
     </div>
 </section>
+
+<form action ="history" method='get' >
+ <button type='submit' class="btn btn-outline-secondary btn-signin offset-8">
+    <i class="fa fa-paper-plane" aria-hidden="true"></i>See History
+</button><br>
+</form>  
+
+
+<!-- Start Banner Area -->
+        <section class="banner-area relative">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-lg-8">
+                        <div class="banner-content text-center">
+                            <p class="text-uppercase text-white">We work hard, we result perfect</p>
+                            <h1 class="text-uppercase text-white">Crafting Digital Agency Experiences</h1>
+                            <a href="#" class="primary-btn banner-btn">Explore Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
