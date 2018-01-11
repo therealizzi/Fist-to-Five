@@ -28,22 +28,27 @@
                         </div>
                         
                         <br>
+
                         <div class="card-body">
                             <form action='/' method='post'>
                                 <div class="form-group">
                                     <label for="priority"><span class="required">*</span></label>
-                                    <input type="submit" id="f1" name="count" value="{{this.id}}.1">
+                                    <input type="submit" id="f1" name="count" value="{{this.id}}.f1">
                                     <label>Fist 1</label>
-                                    <input type="submit" id="f2" name="count" value="{{this.id}}.2">
+                                    <input type="submit" id="f2" name="count" value="{{this.id}}.f2">
                                     <label>Fist 2</label>
-                                    <input type="submit" id="f3" name="count" value="{{this.id}}.3">
+                                    <input type="submit" id="f3" name="count" value="{{this.id}}.f3">
                                     <label>Fist 3</label>
-                                    <input type="submit" id="f4" name="count" value="{{this.id}}.4">
+                                    <input type="submit" id="f4" name="count" value="{{this.id}}.f4">
                                     <label>Fist 4</label>
-                                    <input type="submit" id="f5" name="count" value="{{this.id}}.5">
+                                    <input type="submit" id="f5" name="count" value="{{this.id}}.f5">
                                     <label>Fist 5</label>
                                 </div>
                             </form>
+
+                            {{this.favg}}
+
+                            {{this.createdAt}}
                         </div>
                     </div>
                     <br><br>
