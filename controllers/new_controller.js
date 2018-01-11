@@ -8,7 +8,6 @@ var db = require("../models/");
 // GET ROUTES
 router.get("/", function(req, res) {
     db.Fist5.findAll({
-
         attribute: ['topic'],
         order: 'ID DESC',
         limit: 5
@@ -18,7 +17,6 @@ router.get("/", function(req, res) {
         // console.log("what " + hbsObject);
         return res.render("index", hbsObject);
         // res.render(dbFist5)
-
     });
 })
 
@@ -33,10 +31,7 @@ router.get("/history", function(req, res) {
         .then(function(dbFist5) {
             var hbsObject = { fist5: dbFist5 };
             return res.render("index", hbsObject);
-
-
         });
-
 });
 
 // POST ROUTES
@@ -74,7 +69,6 @@ router.post("/", function(req, res) {
             break;
         default:
             var fistNum = 0;
-
     }
     // console.log("request body" + req.body.count);
     db.Fist5.findById(topicID).then(dbFist5 => {
@@ -97,7 +91,6 @@ router.post("/", function(req, res) {
             'f5': fist5,
             'ftotal': fistNum
         })
-
     });
     // console.log(count);
     //needs to post updates to F1, F2, F3, F4, F5
@@ -128,14 +121,6 @@ router.post("/add", function(req, res) {
             console.log(data.topic);
             res.redirect("/");
         });
-
 })
-
-
-
-
-
-
-
 
 module.exports = router;
