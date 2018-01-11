@@ -1,46 +1,58 @@
-<div class="container-fluid">
-  <div class="row">
+{{!-- navbar --}}
+<nav class="navbar navbar-dark bg-dark">
+    <form action='/' method='get'>
+        <button type='submit' class="btn btn-outline-light my-2 my-sm-0 btn-signin">Home</button>
+    </form>
+    <a class="navbar-brand" href="#"></a>
+    <form action="add" method='get'>
+        <button type='submit' class="btn btn-outline-light my-2 my-sm-0 btn-signin ">ADD QUESTION
+        </button>
+    </form>
+</nav>
 
-{{!--     <img class="img-fluid center-block" src="../../assets/burger2.png" alt="cartoon burger" style="width:150px;height:150px;"> --}}
-
+{{!-- jumbotron --}}
+<div class="page-header" style="background-color: #401f68; font-family: 'Source Serif Pro', serif;">
+  <div class="container">
+    <h1 class="display-4" style="color: white">Welcome to Fist-Of-Five History</h1>
+    <hr style="background-color: white;">
+    <p class="lead" style="color: white; padding-bottom: 20px;">Here you'll find all the previous topics:</p>
   </div>
 </div>
 
-{{!-- THIS IS THE HEADER OF THE PAGE --}}
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-2 col-md-3">
-    </div>  
-    <h1 class="col-xs-8 col-md-6 text-center header">Here are all the previous topics:</h1>
-    </div>  
-  </div>
-</div>
-
-{{!-- THIS IS THE TOPIC SECTION --}}
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-6 col-md-6">
-      <ul>
-        {{#each topic}}
-          {{#unless this.expired}}
-            <li>
-              <div class="col-xs-8 col-md-8">
-                <div id="topic_box" class="text-center panel panel-default">
-                {{this.id}}  {{this.topic}}
-                </div>
-              </div>
-            </li>
-          {{/unless}}
-        {{/each}}
-      </ul>
+<section class="container dashboard wrapper">
+    <div class="row">
+        <div class="col">
+            <div class="col-12">
+                {{#each fist5}}
+                    <div class="card text-center">
+                        <div class="card-header" style="background-color: #836EAA; padding: 15px; font-family:'Playfair Display', serif; font-size: 30px; color: white;">
+                        {{this.topic}} 
+                        </div>  
+                        <div style="padding-top: 20px"># Votes: {{this.count}} <br> Avg: {{this.favg}}
+                        </div>
+                        <div class="card-body" style="box-shadow: 10px 10px 5px grey">
+                        <strong>Topic Started: </strong>{{this.createdAt}}
+                        </div>
+                    </div>
+                    <br>
+                {{/each}}
+            </div>
+        </div>             
     </div>
-  </div>
-</div>
+</section>
 
-    <form action ="/" method='get' >
-     <button type='submit' class="btn btn-primary btn-signin offset-8">
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>Home
-    </button><br>
-    </form>  
+<!-- Start Banner Area -->
+        <section class="banner-area relative" style="background-color: #401f68; padding: 30px">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row fullscreen justify-content-center align-items-center">
+                    <div class="col-lg-8">
+                        <div class="banner-content text-center">
+                            {{!-- <p class="text-uppercase text-white">We work hard, we result perfect</p> --}}
+                            <h1 class="text-uppercase text-white" style="font-family: 'Source Serif Pro', serif;">By: Northwestern & Trilogy</h1>
+                            {{!-- <a href="#" class="primary-btn banner-btn">Explore Us</a> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

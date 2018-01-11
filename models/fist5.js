@@ -10,6 +10,9 @@ module.exports = function(sequelize, DataTypes) {
         count: {
             type: DataTypes.INTEGER
         },
+        f0: {
+            type: DataTypes.INTEGER
+        },
         f1: {
             type: DataTypes.INTEGER
         },

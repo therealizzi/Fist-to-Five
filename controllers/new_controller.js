@@ -30,7 +30,7 @@ router.get("/history", function(req, res) {
         })
         .then(function(dbFist5) {
             var hbsObject = { fist5: dbFist5 };
-            return res.render("index", hbsObject);
+            return res.render("history", hbsObject);
         });
 });
 
@@ -41,12 +41,17 @@ router.post("/", function(req, res) {
     fistSelected = fistSplit[1];
     console.log(fistSplit);
     var topicID = parseInt(fistSplit[0]);
+    var fist0 = 0;
     var fist1 = 0;
     var fist2 = 0;
     var fist3 = 0;
     var fist4 = 0;
     var fist5 = 0;
     switch (fistSelected) {
+        case "f0":
+            var fistNum = 0;
+            fist0 = 1;
+            break;
         case "f1":
             var fistNum = 1;
             fist1 = 1;
@@ -84,6 +89,7 @@ router.post("/", function(req, res) {
         })
         return (dbFist5).increment({
             'count': 1,
+            'f0': fist0,
             'f1': fist1,
             'f2': fist2,
             'f3': fist3,
@@ -103,6 +109,7 @@ router.post("/add", function(req, res) {
     db.Fist5.create({
             topic: task,
             count: 0,
+            f0: 0,
             f1: 0,
             f2: 0,
             f3: 0,

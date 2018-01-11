@@ -1,8 +1,8 @@
 {
     "development": {
         "username": "root",
-        "password": "",
-        "database": "FistToFive",
+        "password": "123qwe$R",
+        "database": "izzifive_db",
         "host": "localhost",
         "dialect": "mysql"
     },
