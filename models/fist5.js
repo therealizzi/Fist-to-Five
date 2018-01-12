@@ -3,7 +3,7 @@
 
 // This is the sequelize function
 module.exports = function(sequelize, DataTypes) {
-    
+
     // This defines the object variable for the database
     var Fist5 = sequelize.define("Fist5", {
 
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1,255]
+                len: [1, 255]
             }
         },
         count: {
@@ -40,6 +40,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER
         },
         favg: {
+            type: DataTypes.DECIMAL(10, 2)
+        },
+        fpct: {
             type: DataTypes.DECIMAL(10, 2)
         },
     });

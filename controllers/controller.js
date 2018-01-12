@@ -11,14 +11,14 @@ var db = require("../models/");
 
 // This is the main index get route
 router.get("/", function(req, res) {
-    
+
     // Calls the database models and grabs the top 5 topics
     db.Fist5.findAll({
         attribute: ['topic'],
         order: 'ID DESC',
         limit: 5
 
-    // Renders the index handlebars along with the topics
+        // Renders the index handlebars along with the topics
     }).then(function(dbFist5) {
         var hbsObject = { fist5: dbFist5 };
         return res.render("index", hbsObject);
@@ -37,14 +37,14 @@ router.get("/history", function(req, res) {
 
     // Goes to the database and gets all topics
     db.Fist5.findAll({
-            order: 'ID DESC'
-        })
+        order: 'ID DESC'
+    })
 
-        // Renders the history html and topics
-        .then(function(dbFist5) {
-            var hbsObject = { fist5: dbFist5 };
-            return res.render("history", hbsObject);
-        });
+    // Renders the history html and topics
+    .then(function(dbFist5) {
+        var hbsObject = { fist5: dbFist5 };
+        return res.render("history", hbsObject);
+    });
 });
 
 // This is the main index post route
@@ -99,10 +99,12 @@ router.post("/", function(req, res) {
         var total = (JSON.stringify(dbFist5.ftotal) + fistNum);
         var count = (JSON.stringify(dbFist5.count) + 1);
         var average = total / count;
+        var percent = average / 5 * 100;
 
         // Updates the favg column 
         (dbFist5).update({
-            'favg': average
+            'favg': average,
+            'fpct': percent
         })
 
         // Increments the appropriate button column
@@ -131,23 +133,24 @@ router.post("/add", function(req, res) {
 
     // Creates a new topic in the database with all counts = 0
     db.Fist5.create({
-            topic: task,
-            count: 0,
-            f0: 0,
-            f1: 0,
-            f2: 0,
-            f3: 0,
-            f4: 0,
-            f5: 0,
-            ftotal: 0,
-            favg: 0,
-        })
+        topic: task,
+        count: 0,
+        f0: 0,
+        f1: 0,
+        f2: 0,
+        f3: 0,
+        f4: 0,
+        f5: 0,
+        ftotal: 0,
+        favg: 0,
+        fpct: 0,
+    })
 
-        // Then passes the result and redirects client to index
-        .then(function(dbFist5) {
-            var data = JSON.stringify(dbFist5);
-            res.redirect("/");
-        });
+    // Then passes the result and redirects client to index
+    .then(function(dbFist5) {
+        var data = JSON.stringify(dbFist5);
+        res.redirect("/");
+    });
 })
 
 module.exports = router;
