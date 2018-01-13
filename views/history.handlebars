@@ -29,13 +29,19 @@
                         <div class="card-header" style="background-color: #836EAA; padding: 15px; font-family:'Playfair Display', serif; font-size: 30px; color: white;">
                         {{this.topic}} 
                         </div>  
-                        <div style="padding-top: 20px"># Votes: {{this.count}} <br> Avg: {{this.favg}}
+                        <div style="padding-top: 20px"># Votes: {{this.count}}
                         </div>
                         <div class="card-body" style="box-shadow: 10px 10px 5px grey">
                         <strong>Topic Started: </strong>{{this.createdAt}}
                         </div>
                     </div>
                     <br>
+                    
+                    {{!-- progress bar --}}
+                    <div class="progress" style="height: 30px; width: 40%; margin: auto;">
+                         <div class="progress-bar" role="progressbar" style="width: {{this.fpct}}%; background-color: #401f68" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{this.favg}}</div>
+                    </div>
+                    <br>                    
                 {{/each}}
             </div>
         </div>             
